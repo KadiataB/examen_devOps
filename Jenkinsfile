@@ -9,9 +9,9 @@ pipeline {
     environment {
         IMAGE_NAME      = "kadia08/examen_devops"
         JAVA_VERSION    = "17"
-        // SERVICE_ID      = "srv-d3729sre5dus738uujng"
-        // // Replace with your own Render Deploy Hook URL (Service → Manual Deploy → Deploy Hook)
-        // RENDER_DEPLOY_HOOK_URL = "https://api.render.com/deploy/srv-d3729sre5dus738uujng?key=E5_N-dKNaeA" // Secret Text in Jenkins
+        SERVICE_ID      = "srv-d3729sre5dus738uujng"
+        // Replace with your own Render Deploy Hook URL (Service → Manual Deploy → Deploy Hook)
+        RENDER_DEPLOY_HOOK_URL = "https://api.render.com/deploy/srv-d3729sre5dus738uujng?key=E5_N-dKNaeA" // Secret Text in Jenkins
     }
 
     stages {
@@ -48,18 +48,18 @@ pipeline {
             }
         }
 
-        // stage('Deploy to Render') {
-        //     steps {
-        //         script {
-        //             def imgUrl = "docker.io/${IMAGE_NAME}:${env.BUILD_NUMBER}"
-        //             sh """
-        //                echo "Triggering Render deploy for image: ${imgUrl}"
-        //                curl -s -w '\\nHTTP %{http_code}\\n' -X POST \
-        //                     "${RENDER_DEPLOY_HOOK_URL}?imgURL=${imgUrl}"
-        //             """
-        //         }
-        //     }
-        // }
+        stage('Deploy to Render') {
+            steps {
+                script {
+                    def imgUrl = "docker.io/${IMAGE_NAME}:${env.BUILD_NUMBER}"
+                    sh """
+                       echo "Triggering Render deploy for image: ${imgUrl}"
+                       curl -s -w '\\nHTTP %{http_code}\\n' -X POST \
+                            "${RENDER_DEPLOY_HOOK_URL}?imgURL=${imgUrl}"
+                    """
+                }
+            }
+        }
 
         stage('Debug (Optional)') {
             steps {
