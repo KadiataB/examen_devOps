@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         IMAGE_NAME      = "kadia08/examen_devops"
-        JAVA_VERSION    = "17"
+        JAVA_VERSION    = "11"
         RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-d3792vje5dus73955dgg?key=SNG03FwTdo8" // ton deploy hook
     }
 
