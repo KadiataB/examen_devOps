@@ -1,5 +1,5 @@
 # Utilise une image JDK 17
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:11-jdk-alpine
 
 WORKDIR /app
 
