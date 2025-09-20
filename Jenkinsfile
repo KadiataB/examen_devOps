@@ -9,7 +9,7 @@ pipeline {
     environment {
         IMAGE_NAME      = "kadia08/examen_devops"
         JAVA_VERSION    = "17"
-        RENDER_DEPLOY_HOOK = "hhttps://api.render.com/deploy/srv-d3792vje5dus73955dgg?key=SNG03FwTdo8" // ton deploy hook
+        RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-d3792vje5dus73955dgg?key=SNG03FwTdo8" // ton deploy hook
         // SERVICE_ID      = "srv-d3729sre5dus738uujng"
         // // Replace with your own Render Deploy Hook URL (Service → Manual Deploy → Deploy Hook)
         // RENDER_DEPLOY_HOOK_URL = "https://api.render.com/deploy/srv-d3729sre5dus738uujng?key=E5_N-dKNaeA" // Secret Text in Jenkins
